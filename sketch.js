@@ -27,12 +27,12 @@ function setup() {
   const faceOptions = {
     withLandmarks: true,
     withExpressions: true,
-    withDescriptors: false,
+    withDescriptors: true,
     minConfidence: 0.5
   };
 
   faceapi = ml5.faceApi(video, faceOptions, faceReady);
-  classifyVideo();
+  // classifyVideo();
 }
 
 function draw() {
@@ -53,14 +53,14 @@ function classifyVideo() {
 }
 
 // When we get a result
-function gotResult(error, results) {
-  if (error) {
-    console.error(error);
-    return;
-  }
-  label = results[0].label;
-  classifyVideo();
-}
+// function gotResult(error, results) {
+//   if (error) {
+//     console.error(error);
+//     return;
+//   }
+//   label = results[0].label;
+//   classifyVideo();
+// }
 
 function faceReady() {
   faceapi.detect(gotFaces);
